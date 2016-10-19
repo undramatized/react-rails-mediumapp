@@ -1,17 +1,5 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<h1>Large</h1>
-<p>The New Medium</p>
-<% if @user %>
-  <p>
-    Welcome back <%= @user.email %>
-  </p>
-  <%= link_to 'Logout', logout_path %>
-<% else %>
-  <%= link_to 'Login', login_path %>
-<% end %>
 
 <%= react_component 'ArticlesContainer', {articles: @articles} %>
 <br>
-
-<%= link_to 'New Article', new_article_path %>

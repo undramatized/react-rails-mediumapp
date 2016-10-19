@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 
  gem 'react-rails', '~> 1.0'
 
+ gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

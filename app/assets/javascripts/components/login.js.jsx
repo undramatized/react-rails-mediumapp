@@ -20,10 +20,10 @@ var LoginForm = React.createClass({
   },
   render: function(){
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="login-form" onSubmit={this.handleSubmit}>
         <input name="email" value={this.state.email} type="text" onChange={this.handleChange}></input>
         <input name="password" value={this.state.password} type="password" onChange={this.handleChange}></input>
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
       </form>
     )
   }

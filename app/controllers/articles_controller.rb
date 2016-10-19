@@ -5,13 +5,14 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
     @user = current_user
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @user = current_user
   end
 
   # GET /articles/new
@@ -21,6 +22,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /articles
@@ -29,14 +31,10 @@ class ArticlesController < ApplicationController
     @user = current_user
     @article = @user.articles.create(article_params)
 
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      render json: @article
+    else
+      render json: @article.errors, status: :unprocessable_entity
     end
   end
 

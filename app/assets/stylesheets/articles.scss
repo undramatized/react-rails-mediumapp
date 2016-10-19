@@ -1,3 +1,56 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$medium-green: #00AB6C;
+
+.article {
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  width: 60vw;
+
+  a {
+    color: $medium-green;
+    text-decoration: none;
+
+    :hover {
+      color: darken($medium-green, 5%);
+    }
+  }
+
+  img{
+    max-width: 100%;
+  }
+}
+
+.write-form {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  padding: 10px 20px;
+  margin: 20px 0;
+  display: block;
+  width: 60vw;
+
+  p{
+    font-size: 16px;
+    color: #ccc;
+  }
+  .article-form {
+    #title {
+      display: block;
+      font-size: 30px;
+      margin: 0;
+      border: none;
+    }
+    #content {
+      display: block;
+      height: 200px;
+      font-size: 16px;
+      margin: 0;
+      border: none;
+    }
+  }
+
+}

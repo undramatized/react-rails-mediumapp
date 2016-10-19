@@ -2,7 +2,8 @@ var ArticleForm = React.createClass({
   getInitialState: function(){
     return({
       title:'',
-      content:''
+      content:'',
+      writing: false
     })
   },
   handleChange: function(e){
@@ -17,13 +18,33 @@ var ArticleForm = React.createClass({
     }.bind(this));
     this.setState(getInitialState());
   },
+  toggleWrite: function(){
+    if(this.state.writing){
+      this.setState({writing: false});
+    }else{
+      this.setState({writing: true});
+    }
+  },
   render: function(){
+    var writeForm;
+    if(this.state.writing){
+        writeForm = (
+          <form className="article-form" onSubmit={this.handleSubmit}>
+            <input id="title" type="text" placeholder="Title Here" name="title" value={this.state.title} onChange={this.handleChange}></input>
+            <textarea id="content" type="text" placeholder="Write Content Here" name="content" value={this.state.content} onChange={this.handleChange}></textarea>
+            <button id="submit-btn" type="submit">Submit</button>
+            <button onClick={this.toggleWrite}>Cancel</button>
+          </form>
+        )
+      }else{
+        writeForm = (
+          <p onClick={this.toggleWrite}>Write here...</p>
+        )
+      }
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Title Here" name="title" value={this.state.title} onChange={this.handleChange}></input>
-        <input type="text" placeholder="Write Content Here" name="content" value={this.state.content} onChange={this.handleChange}></input>
-        <button type="submit">Submit</button>
-  </form>
+      <div className="write-form">
+        {writeForm}
+      </div>
     )
   }
 })
