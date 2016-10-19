@@ -11,6 +11,28 @@ $medium-green: #00AB6C;
   margin-bottom: 5px;
   width: 60vw;
 
+  .row{
+    img {
+      max-width: 45px;
+      margin-top: 5px;
+      border-radius: 100%;
+    }
+    #author {
+      margin: 0;
+      margin-top: 10px;
+      color: darken(#ccc, 5%);
+      font-size: 14px;
+    }
+
+    #author-desc {
+      margin: 0;
+      margin-bottom: 10px;
+      color: #ccc;
+      font-size: 12px;
+    }
+  }
+
+
   a {
     color: $medium-green;
     text-decoration: none;

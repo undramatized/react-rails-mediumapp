@@ -1,7 +1,12 @@
 var Article = React.createClass({
   getInitialState: function(){
+    var userpath = "users/"+this.props.article.user_id
+    $.get(userpath, function(user){
+      this.setState({user: user})
+    }.bind(this));
     return({
-      expanded: this.props.expanded
+      expanded: this.props.expanded,
+      user: {}
     })
   },
   articlePath: function(id){
@@ -31,6 +36,15 @@ var Article = React.createClass({
     }.bind(this);
     return(
       <div className="article">
+        <div className="row">
+          <div className="one column">
+            <img src="http://digventures.com/barrowed-time/wp-content/uploads/placeholder-man-grid-240x268.png"/>
+          </div>
+          <div className="eleven columns">
+            <p id="author">{this.state.user.name}</p>
+            <p id="author-desc">{this.state.user.description}</p>
+          </div>
+        </div>
         <a href={this.articlePath(this.props.article.id)} >
           <h3>{this.props.article.title}</h3>
         </a>

@@ -14,12 +14,14 @@
       <p>The New Medium</p>
       <div class="user-details">
         <% if @user %>
-        <p>
-          Welcome back <%= @user.email %>
-        </p>
-        <%= button_to 'Logout', logout_path, method: :delete %>
+          <p>
+            Welcome back <%= @user.email %>
+          </p>
+          <%= button_to 'Logout', logout_path, method: :delete %>
         <% else %>
-        <%= react_component 'LoginForm' %>
+          <%= react_component 'LoginForm' %>
+          <p>Don't have an account?</p>
+          <%= link_to 'Sign up here.', signup_path %>
         <% end %>
       </div>
     </header>
