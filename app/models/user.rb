@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :articles
+  
   validates :email,
   presence: true,
   uniqueness: {case_sensitive: false}
