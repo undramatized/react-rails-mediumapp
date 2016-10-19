@@ -16,7 +16,7 @@ var ArticleForm = React.createClass({
     $.post("/articles",{article: this.state}, function(data){
       this.props.newArticle(data);
     }.bind(this));
-    this.setState(getInitialState());
+    this.setState(this.getInitialState());
   },
   toggleWrite: function(){
     if(this.state.writing){
@@ -30,9 +30,10 @@ var ArticleForm = React.createClass({
     if(this.state.writing){
         writeForm = (
           <form className="article-form" onSubmit={this.handleSubmit}>
-            <input id="title" type="text" placeholder="Title Here" name="title" value={this.state.title} onChange={this.handleChange}></input>
-            <textarea id="content" type="text" placeholder="Write Content Here" name="content" value={this.state.content} onChange={this.handleChange}></textarea>
-            <button id="submit-btn" type="submit">Submit</button>
+            <input id="title" type="text" placeholder="Give it a nice title..." name="title" value={this.state.title} onChange={this.handleChange}></input>
+            <hr></hr>
+            <textarea id="content" type="text" placeholder="Your content goes here..." name="content" value={this.state.content} onChange={this.handleChange}></textarea>
+            <button className="button-primary" id="submit-btn" type="submit">Submit</button>
             <button onClick={this.toggleWrite}>Cancel</button>
           </form>
         )

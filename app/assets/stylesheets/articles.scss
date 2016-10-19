@@ -44,6 +44,14 @@ $medium-green: #00AB6C;
 
   img{
     max-width: 100%;
+    margin: 10px 0;
+  }
+
+  button{
+    color: #ccc;
+    display: block;
+    margin: 0 auto;
+    border: none;
   }
 }
 
@@ -56,7 +64,7 @@ $medium-green: #00AB6C;
   width: 60vw;
 
   p{
-    font-size: 16px;
+    font-size: 20px;
     color: #ccc;
   }
   .article-form {
