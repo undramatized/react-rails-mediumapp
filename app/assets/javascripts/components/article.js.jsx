@@ -26,6 +26,13 @@ var Article = React.createClass({
       this.setState({expanded: true});
     }
   },
+  formatDate: function(date){
+    return moment(date).format("MMM Do YYYY")
+  },
+  readTime: function(text){
+    var readtime = Math.ceil(text.length/1000)
+    return ""+readtime+" min read";
+  },
   render: function(){
     var viewbutton = function(){
       if(this.state.expanded){
@@ -45,6 +52,7 @@ var Article = React.createClass({
             <p id="author-desc">{this.state.user.description}</p>
           </div>
         </div>
+        <p className="article-info">{this.formatDate(this.props.article.created_at)} | {this.readTime(this.props.article.content)}</p>
         <a href={this.articlePath(this.props.article.id)} >
           <h3>{this.props.article.title}</h3>
         </a>

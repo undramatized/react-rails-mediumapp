@@ -13,14 +13,14 @@
       <h1>Large.</h1>
       <p>The New Medium</p>
       <div class="user-details">
-        <% if @user %>
-          <p><%= @user.name %></p>
+        <%= react_component 'LoginForm', {user: @current_user} %>
+        <!-- <% if @current_user %>
+          <p><%= @current_user.name %></p>
           <%= button_to 'Logout', logout_path, method: :delete %>
         <% else %>
-          <%= react_component 'LoginForm' %>
           <p>Don't have an account?</p>
           <%= link_to 'Sign up here.', signup_path %>
-        <% end %>
+        <% end %> -->
       </div>
     </header>
     <%= yield %>

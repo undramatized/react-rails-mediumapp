@@ -30,8 +30,14 @@ $medium-green: #00AB6C;
       color: #ccc;
       font-size: 12px;
     }
+
   }
 
+  .article-info{
+    margin: 0;
+    font-size: 13px;
+    color: #ccc;
+  }
 
   a {
     color: $medium-green;
@@ -69,12 +75,14 @@ $medium-green: #00AB6C;
   }
   .article-form {
     #title {
+      width: 100%;
       display: block;
       font-size: 30px;
       margin: 0;
       border: none;
     }
     #content {
+      width: 100%;
       display: block;
       height: 200px;
       font-size: 16px;
